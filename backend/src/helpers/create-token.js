@@ -3,7 +3,8 @@ import jwt from 'jsonwebtoken';
 const createToken = async (user, req, res) => {
   const secret = process.env.JWT_SECRET;
   // CREATE A TOKEN
-  const token = jwt.sign({
+  const token = await
+  jwt.sign({
     name: user.name,
     id: user._id,
   }, secret);
